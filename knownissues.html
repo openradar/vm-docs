@@ -60,12 +60,20 @@ keyboard mapping is weird. One way to fix it is to install <tt class="docutils l
 </div>
 <div class="section" id="bit-vs-64-bit">
 <h2>32-bit vs. 64-bit<a class="headerlink" href="#bit-vs-64-bit" title="Permalink to this headline">¶</a></h2>
-<p>If you are working on a 32-bit OS, you need to install a 32-bit VM image.</p>
-<p>If you are working on a 64-bit OS, you need to install a 64-bit VM image.</p>
-<p>Very simple.</p>
+<p>If you are working on a 32-bit OS, you should install a 32-bit VM image.</p>
+<p>If you are working on a 64-bit OS, you should install a 64-bit VM image.</p>
 <p>When you import the image to VirtualBox, check the <tt class="docutils literal"><span class="pre">Appliance</span> <span class="pre">Settings</span></tt>:
 For the 32bit image, make sure that <em>&#8220;Guest OS Type&#8221;</em> is &#8220;Ubuntu (32bit)&#8221;,
 otherwise choose &#8220;Ubuntu (64bit)&#8221;.</p>
+<p><strong>Try the 32-bit image when import or booting of the 64-bit appliance fails (and vice versa).</strong></p>
+</div>
+<div class="section" id="cleaning-up-after-removing-a-vm">
+<h2>Cleaning up after removing a VM<a class="headerlink" href="#cleaning-up-after-removing-a-vm" title="Permalink to this headline">¶</a></h2>
+<p>If you want to remove an appliance from your computer, you can use the VirtualBox manager,
+select the appliance, and click &#8220;Remove&#8221;.</p>
+<p>However, in some cases, VirtualBox might not remove all the corresponding VM files from your file system.
+In that case you need to do that manually. Under <tt class="docutils literal"><span class="pre">File</span></tt> &gt; <tt class="docutils literal"><span class="pre">Preferences</span></tt>, find your &#8220;Default Machine Folder&#8221;.
+Navigate there and delete the remaining directories that correspond to the appliance you want to remove.</p>
 </div>
 </div>
 
