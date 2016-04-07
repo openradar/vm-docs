@@ -27,12 +27,12 @@
     <link rel="next" title="Community" href="community.html" />
     <link rel="prev" title="Build the VM from source" href="build.html" /> 
   </head>
-  <body>
-    <div class="header-wrapper">
+  <body role="document">
+    <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="index.html">An Open Virtual Machine for Cross-Platform Weather Radar Science</a></div>
-        <div class="rel">
+        <div class="rel" role="navigation" aria-label="related navigation">
           <a href="build.html" title="Build the VM from source"
              accesskey="P">previous</a> |
           <a href="community.html" title="Community"
@@ -47,7 +47,7 @@
             
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="courses">
 <h1>Courses<a class="headerlink" href="#courses" title="Permalink to this headline">¶</a></h1>
@@ -56,7 +56,7 @@
 which was carried out at the <a class="reference external" href="http://www.pa.op.dlr.de/erad2014/">ERAD 2014</a> for the very first time.</p>
 <p>The courses are based on the <a class="reference external" href="http://ipython.org/notebook.html">IPython notebook</a>.</p>
 <p>Once you have logged into the VM, run the command</p>
-<p><tt class="docutils literal"><span class="pre">$</span> <span class="pre">./start_notebook.sh</span></tt>.</p>
+<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">./start_notebook.sh</span></code>.</p>
 <p>Then open a browser window on your host machine and navigate to <a class="reference external" href="http://127.0.0.1:8888/tree">http://127.0.0.1:8888/tree</a>.
 From here, you can browse through the available IPython notebooks.</p>
 <p>You can also access the course repositories directly:</p>
@@ -90,16 +90,18 @@ From here, you can browse through the available IPython notebooks.</p>
 <li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Issues</a></li>
 </ul>
 
-          <h3 style="margin-top: 1.5em;">Search</h3>
-          <form class="search" action="search.html" method="get">
-            <input type="text" name="q" />
-            <input type="submit" value="Go" />
-            <input type="hidden" name="check_keywords" value="yes" />
-            <input type="hidden" name="area" value="default" />
-          </form>
-          <p class="searchtip" style="font-size: 90%">
-            Enter search terms or a module, class or function name.
-          </p>
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+            <p class="searchtip" style="font-size: 90%">
+                Enter search terms or a module, class or function name.
+            </p>
+          </div>
         </div>
         <div class="clearer"></div>
       </div>
@@ -108,19 +110,23 @@ From here, you can browse through the available IPython notebooks.</p>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="build.html" title="Build the VM from source"
-             >previous</a> |
-          <a href="community.html" title="Community"
-             >next</a>
-            <br/>
-            <a href="_sources/courses.txt"
-               rel="nofollow">Show Source</a>
+          <div role="navigation" aria-label="related navigaton">
+            <a href="build.html" title="Build the VM from source"
+              >previous</a> |
+            <a href="community.html" title="Community"
+              >next</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/courses.txt"
+                rel="nofollow">Show Source</a>
+          </div>
         </div>
 
         <div class="right">
           
-    <div class="footer">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
         </div>
         <div class="clearer"></div>

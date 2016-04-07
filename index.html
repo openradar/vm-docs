@@ -26,12 +26,12 @@
     <link rel="top" title="An Open Virtual Machine for Cross-Platform Weather Radar Science" href="#" />
     <link rel="next" title="Background" href="background.html" /> 
   </head>
-  <body>
-    <div class="header-wrapper">
+  <body role="document">
+    <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="#">An Open Virtual Machine for Cross-Platform Weather Radar Science</a></div>
-        <div class="rel">
+        <div class="rel" role="navigation" aria-label="related navigation">
           <a href="background.html" title="Background"
              accesskey="N">next</a>
         </div>
@@ -44,7 +44,7 @@
             
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="towards-cross-platform-weather-radar-science">
 <h1>Towards Cross-Platform Weather Radar Science<a class="headerlink" href="#towards-cross-platform-weather-radar-science" title="Permalink to this headline">¶</a></h1>
@@ -97,16 +97,18 @@ reliable, reproducible, scalable, and extendable.</p>
 <li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Issues</a></li>
 </ul>
 
-          <h3 style="margin-top: 1.5em;">Search</h3>
-          <form class="search" action="search.html" method="get">
-            <input type="text" name="q" />
-            <input type="submit" value="Go" />
-            <input type="hidden" name="check_keywords" value="yes" />
-            <input type="hidden" name="area" value="default" />
-          </form>
-          <p class="searchtip" style="font-size: 90%">
-            Enter search terms or a module, class or function name.
-          </p>
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+            <p class="searchtip" style="font-size: 90%">
+                Enter search terms or a module, class or function name.
+            </p>
+          </div>
         </div>
         <div class="clearer"></div>
       </div>
@@ -115,17 +117,21 @@ reliable, reproducible, scalable, and extendable.</p>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="background.html" title="Background"
-             >next</a>
-            <br/>
-            <a href="_sources/index.txt"
-               rel="nofollow">Show Source</a>
+          <div role="navigation" aria-label="related navigaton">
+            <a href="background.html" title="Background"
+              >next</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/index.txt"
+                rel="nofollow">Show Source</a>
+          </div>
         </div>
 
         <div class="right">
           
-    <div class="footer">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
         </div>
         <div class="clearer"></div>
