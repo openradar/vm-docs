@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Share data between guest and host &#8212; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="An Open Virtual Machine for Cross-Platform Weather Radar Science" href="index.html" />
+    <link rel="next" title="Courses" href="courses.html" />
+    <link rel="prev" title="Build the VM from source" href="build.html" /> 
+  </head>
+  <body role="document">
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">An Open Virtual Machine for Cross-Platform Weather Radar Science</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="build.html" title="Build the VM from source"
+             accesskey="P">previous</a> |
+          <a href="courses.html" title="Courses"
+             accesskey="N">next</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="share-data-between-guest-and-host">
+<h1>Share data between guest and host<a class="headerlink" href="#share-data-between-guest-and-host" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-are-shared-directories-useful">
+<h2>Why are shared directories useful?<a class="headerlink" href="#why-are-shared-directories-useful" title="Permalink to this headline">¶</a></h2>
+<p>A useful feature of the virtual machine (VM) concept is that you can
+share data between the host (your physical machine) and the guest
+(the VM). This way, you can use the software tools
+available on the VM for processing (radar) data that
+actually resides on your host machine.</p>
+</div>
+<div class="section" id="how-to-create-a-shared-directory">
+<h2>How to create a shared directory?<a class="headerlink" href="#how-to-create-a-shared-directory" title="Permalink to this headline">¶</a></h2>
+<p>The procedure of sharing a host directory with the VM
+contains two steps.</p>
+<div class="section" id="step-1-define-shared-directory">
+<span id="ref-step1"></span><h3>Step 1: Define shared directory<a class="headerlink" href="#step-1-define-shared-directory" title="Permalink to this headline">¶</a></h3>
+<p>First, you need to define the shared directory, and the name under
+which it should be known to the VM. You can do this using the
+VirtualBox GUI.</p>
+<ul class="simple">
+<li>Power-off the VM</li>
+<li>In VirtualBox, right-click the VM, and select <code class="docutils literal"><span class="pre">Settings</span></code></li>
+<li>Select the <code class="docutils literal"><span class="pre">Shared</span> <span class="pre">Folders</span></code> item, hit the <code class="docutils literal"><span class="pre">Add</span> <span class="pre">folder</span></code> icon</li>
+<li>Select the directory you want to share</li>
+<li>Under <code class="docutils literal"><span class="pre">Folder</span> <span class="pre">Name</span></code>, the folder will be known to the VM</li>
+<li>Use the check boxes to decide whether the folder should be
+<code class="docutils literal"><span class="pre">read-only</span></code> from the VM, and whether it should be shared permanently;
+generally, you should not check <code class="docutils literal"><span class="pre">Auto-mount</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="step-2-mount-shared-directory-on-the-vm">
+<h3>Step 2: Mount shared directory on the VM<a class="headerlink" href="#step-2-mount-shared-directory-on-the-vm" title="Permalink to this headline">¶</a></h3>
+<p>Now start the VM again, log in, and execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) sharedir mountdir
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">sharedir</span></code> has to be what you chose as <code class="docutils literal"><span class="pre">Folder</span> <span class="pre">Name</span></code> above, and
+and <code class="docutils literal"><span class="pre">mountdir</span></code> is the target directory in the VM&#8217;s file system which
+must already exist (otherwise, you ned to create it using <code class="docutils literal"><span class="pre">mkdir</span></code>).</p>
+<p>For example, if your <code class="docutils literal"><span class="pre">Folder</span> <span class="pre">Name</span></code> from <a class="reference internal" href="#step-1-define-shared-directory">Step 1: Define shared directory</a> was <code class="docutils literal"><span class="pre">data2vm</span></code>, you could
+execute the following on the VM (assume you are in the <code class="docutils literal"><span class="pre">~</span></code> directory):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>~$ mkdir from_host
+~$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) data2vm ~/from_host
+~$ ls from_host
+</pre></div>
+</div>
+<p>The final line is just to verify that the mount was successful, and should
+show you the content of your shared directory on the host.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Build the VM from source</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Share data between guest and host</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">Development Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Issues</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="build.html" title="Build the VM from source"
+              >previous</a> |
+            <a href="courses.html" title="Courses"
+              >next</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/sharedir.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

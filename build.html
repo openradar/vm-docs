@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Build the VM from source &mdash; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
+    <title>Build the VM from source &#8212; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="An Open Virtual Machine for Cross-Platform Weather Radar Science" href="index.html" />
-    <link rel="next" title="Courses" href="courses.html" />
+    <link rel="next" title="Share data between guest and host" href="sharedir.html" />
     <link rel="prev" title="Downloads" href="downloads.html" /> 
   </head>
   <body role="document">
@@ -35,7 +35,7 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="downloads.html" title="Downloads"
              accesskey="P">previous</a> |
-          <a href="courses.html" title="Courses"
+          <a href="sharedir.html" title="Share data between guest and host"
              accesskey="N">next</a>
         </div>
        </div>
@@ -98,7 +98,7 @@ follow these steps.</p>
 For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. Writing the ova file may take a minute or two.</p>
 <p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">destroy</span></code> (completely removes the VM)</p>
 <p><strong>32-bit image</strong></p>
-<p>Edit <code class="docutils literal"><span class="pre">Vagrantfile</span></code>: comment out lines 11-20, uncomment 24-30</p>
+<p>Edit <code class="docutils literal"><span class="pre">Vagrantfile</span></code>: comment out lines 11-20, uncomment 24-36</p>
 <p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">up</span></code></p>
 <p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">halt</span></code></p>
 <p>Use the VirtualBox manager to remove the shared folders, and export the 32-bit image.</p>
@@ -119,7 +119,8 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Build the VM from source</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build the VM from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharedir.html">Share data between guest and host</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="team.html">Development Team</a></li>
@@ -134,9 +135,6 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
                 <input type="hidden" name="check_keywords" value="yes" />
                 <input type="hidden" name="area" value="default" />
             </form>
-            <p class="searchtip" style="font-size: 90%">
-                Enter search terms or a module, class or function name.
-            </p>
           </div>
         </div>
         <div class="clearer"></div>
@@ -149,7 +147,7 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
           <div role="navigation" aria-label="related navigaton">
             <a href="downloads.html" title="Downloads"
               >previous</a> |
-            <a href="courses.html" title="Courses"
+            <a href="sharedir.html" title="Share data between guest and host"
               >next</a>
           </div>
           <div role="note" aria-label="source link">
@@ -162,7 +160,7 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
         <div class="right">
           
     <div class="footer" role="contentinfo">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
         </div>
         <div class="clearer"></div>

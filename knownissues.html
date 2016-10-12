@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Known Issues &mdash; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
+    <title>Known Issues &#8212; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
     
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -51,10 +51,36 @@
 <div class="section" id="weird-keyboard-layout-inside-the-vm">
 <h2>Weird keyboard layout inside the VM<a class="headerlink" href="#weird-keyboard-layout-inside-the-vm" title="Permalink to this headline">¶</a></h2>
 <p>If you are &#8220;inside&#8221; the appliance window, you might find that the
-keyboard mapping is weird. One way to fix it is to install <code class="docutils literal"><span class="pre">console</span> <span class="pre">data</span></code>:</p>
-<p>If you&#8217;re logged in the VM, call</p>
-<p><code class="docutils literal"><span class="pre">$sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">console-data</span></code></p>
-<p>from the shell. During the installation process, you will be able to choose an appropriate keyboard layout.</p>
+keyboard mapping is weird. This is probably a <a class="reference external" href="https://en.wikipedia.org/wiki/QWERTZ">QWERTZ</a>
+vs <a class="reference external" href="https://en.wikipedia.org/wiki/QWERTZ">QWERTY</a> issue. Example:
+You hit <code class="docutils literal"><span class="pre">z</span></code> and get a <code class="docutils literal"><span class="pre">y</span></code>. The VM adopts a US keyboard mapping by default which
+<em>might</em> cause problems in case your keyboard is mapped for another country. There
+are two ways to change the keyboard mapping: permanently, or just for the current session.</p>
+<div class="section" id="change-keyboard-mapping-permanently">
+<h3>Change keyboard mapping permanently<a class="headerlink" href="#change-keyboard-mapping-permanently" title="Permalink to this headline">¶</a></h3>
+<p>On the VM shell, execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo dpkg-reconfigure keyboard-configuration
+</pre></div>
+</div>
+<p>Walk through the menu: in most cases, you can just confirm the default settings by hitting <code class="docutils literal"><span class="pre">Enter</span></code>.
+However, carefully choose the adequate country in the sub-menu <code class="docutils literal"><span class="pre">Country</span> <span class="pre">of</span> <span class="pre">origin</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">keyboard</span></code>.</p>
+</div>
+<div class="section" id="change-keyboard-mapping-just-for-current-session">
+<h3>Change keyboard mapping just for current session<a class="headerlink" href="#change-keyboard-mapping-just-for-current-session" title="Permalink to this headline">¶</a></h3>
+<p>For this, you need to install <code class="docutils literal"><span class="pre">console-data</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo apt-get install console-data
+</pre></div>
+</div>
+<p>from the VM shell. During the installation process, you will be able to
+choose an appropriate keyboard layout: choose <code class="docutils literal"><span class="pre">Select</span> <span class="pre">keymap</span> <span class="pre">from</span> <span class="pre">arch</span> <span class="pre">list</span></code>,
+then continue according to your keyboard layout (typically <code class="docutils literal"><span class="pre">qwertz</span></code> or <code class="docutils literal"><span class="pre">qwerty</span></code>)
+and country.</p>
+<p>In case you already have <code class="docutils literal"><span class="pre">console-data</span></code> installed, just execute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo dpkg-reconfigure console-data
+</pre></div>
+</div>
+<p>instead, and follow the same procedure.</p>
+</div>
 </div>
 <div class="section" id="bit-vs-64-bit">
 <h2>32-bit vs. 64-bit<a class="headerlink" href="#bit-vs-64-bit" title="Permalink to this headline">¶</a></h2>
@@ -64,6 +90,16 @@ keyboard mapping is weird. One way to fix it is to install <code class="docutils
 For the 32bit image, make sure that <em>&#8220;Guest OS Type&#8221;</em> is &#8220;Ubuntu (32bit)&#8221;,
 otherwise choose &#8220;Ubuntu (64bit)&#8221;.</p>
 <p><strong>Try the 32-bit image when import or booting of the 64-bit appliance fails (and vice versa).</strong></p>
+</div>
+<div class="section" id="enabling-virtualization">
+<h2>Enabling virtualization<a class="headerlink" href="#enabling-virtualization" title="Permalink to this headline">¶</a></h2>
+<p>Disabled hardware virtualization features on the host system can lead to weird error messages
+(such as &#8220;VT-x/AMD-V hardware acceleration is not available on your system&#8221;). This particularly
+applies to Windows, but virtualization support can also be disabled on Linux
+hosts. The way how to enable virtualization support depends on the system. Please read
+<a class="reference external" href="http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/">this article</a>
+on how the issue might be adressed on Windows hosts - usually you need to change the
+BIOS settings to enable virtualization support.</p>
 </div>
 <div class="section" id="cleaning-up-after-removing-a-vm">
 <h2>Cleaning up after removing a VM<a class="headerlink" href="#cleaning-up-after-removing-a-vm" title="Permalink to this headline">¶</a></h2>
@@ -88,10 +124,11 @@ Navigate there and delete the remaining directories that correspond to the appli
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="downloads.html">Downloads</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build the VM from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharedir.html">Share data between guest and host</a></li>
 <li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="team.html">Development Team</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Known Issues</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Known Issues</a></li>
 </ul>
 
           <div role="search">
@@ -102,9 +139,6 @@ Navigate there and delete the remaining directories that correspond to the appli
                 <input type="hidden" name="check_keywords" value="yes" />
                 <input type="hidden" name="area" value="default" />
             </form>
-            <p class="searchtip" style="font-size: 90%">
-                Enter search terms or a module, class or function name.
-            </p>
           </div>
         </div>
         <div class="clearer"></div>
@@ -128,7 +162,7 @@ Navigate there and delete the remaining directories that correspond to the appli
         <div class="right">
           
     <div class="footer" role="contentinfo">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
         </div>
         <div class="clearer"></div>
