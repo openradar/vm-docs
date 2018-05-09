@@ -1,33 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Build the VM from source &#8212; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="An Open Virtual Machine for Cross-Platform Weather Radar Science" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Share data between guest and host" href="sharedir.html" />
     <link rel="prev" title="Downloads" href="downloads.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -51,59 +40,85 @@
             
   <div class="section" id="build-the-vm-from-source">
 <h1>Build the VM from source<a class="headerlink" href="#build-the-vm-from-source" title="Permalink to this headline">¶</a></h1>
-<p>The creation of this VM has been tested on Ubuntu 12.04,
-Mac OS X 10.9 and Windows 7 hosts running vagrant 1.5.4.  Other host should
-be supported if a recent version of vagrant (1.3+) and VirtualBox
-can be installed.</p>
+<p>Building VM has been tested on Ubuntu, Mac OS X, and Windows 7 hosts,
+running various vagrant and VirtualBox versions. Other host should
+be supported as well. The most recent setup was using vagrant 1.9.6 and VirtualBox 5.1.</p>
+<p>Recently, the guest OS (i.e. the OS on the VM) was changed from Ubuntu 12.04 (trusty) to Debian 9 (Stretch).</p>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>To create and run this VM you need to install
+<p>To build and run this VM you need to install
 <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> and <a class="reference external" href="http://www.vagrantup.com/">vagrant</a>.</p>
 <p>Download the source <a class="reference external" href="https://github.com/openradar/oss_weather_radar_vm/archive/master.zip">here</a>.</p>
 </div>
 <div class="section" id="building">
 <h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
-<p>After unpacking the source, create the VM using the command <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">up</span></code>.</p>
+<p>After unpacking the source, create the VM using the command <code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">up</span></code>.</p>
 <p>Note that the base box and other software is
 downloaded when the VM is created which may take a
 significant amount of time depending on connection speed.
 The base box and software packages are cached locally so that
-subsequent uses of <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">up</span></code> should complete much quicker
+subsequent uses of <code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">up</span></code> should complete much quicker
 (typically ~10 minutes).</p>
 <p>Afterwards, the VM can be accessed from the host machine using the command
-<cite>vagrant ssh</cite>.  Launching VirtualBox will show the VM running.</p>
-<p>A IPython notebook server can be run from the VM which is
-accessible from the host machine.  Use the command <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">ssh</span></code>
-to ssh into the running VM. For login, use <code class="docutils literal"><span class="pre">vagrant</span></code> with password <code class="docutils literal"><span class="pre">vagrant</span></code>.</p>
-<p>Use</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">./start_notebook.sh</span></code></p>
-<p>to start the IPython notebook server running on the VM. From the host visit
-<a class="reference external" href="http://127.0.0.1:8888/tree">http://127.0.0.1:8888/tree</a> to interact with the server.</p>
-<p>The VM can be suspeded using <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">suspend</span></code> or stopped using
-<code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">halt</span></code>.  The VM can also be paused from the VirtualBox GUI.</p>
-<p>Once stopped, the VM can be exported as an ova image file VirtualBox.
-This file (~1.4 GB in size) can be shared with end users wanting to
-run the VM using VirtualBox without installing vagrant.
-The username and password for this VM is &#8216;vagrant&#8217; and &#8216;vagrant&#8217;.</p>
-<p>To stop and delete the VM use <code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">destroy</span></code>.</p>
+<cite>vagrant ssh</cite>. Launching VirtualBox will show the VM running.</p>
+<p>An IPython/jupyter notebook server can be run from the VM which is
+accessible from the host machine.  Use the command <code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">ssh</span></code>
+to ssh into the running VM. For login, use <code class="docutils literal notranslate"><span class="pre">vagrant</span></code> with password <code class="docutils literal notranslate"><span class="pre">vagrant</span></code>.</p>
+<p>The VM can be suspeded using <code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">suspend</span></code> or stopped using
+<code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">halt</span></code>.  The VM can also be paused from the VirtualBox GUI.</p>
+<p>To stop and delete the VM use <code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">destroy</span></code>.</p>
 </div>
 <div class="section" id="export-the-vm-as-an-applicance">
 <h2>Export the VM as an applicance<a class="headerlink" href="#export-the-vm-as-an-applicance" title="Permalink to this headline">¶</a></h2>
-<p>In order to create a VM image (appliance) for distribution, you need to
-follow these steps.</p>
+<p>Once stopped, the VM can be exported as an ova image (“appliance”) via VirtualBox.
+This file (2-3 GB in size) can be shared with other users in order to
+run the VM via VirtualBox without installing vagrant.
+The default username and password for this VM is <code class="docutils literal notranslate"><span class="pre">vagrant</span></code> and <code class="docutils literal notranslate"><span class="pre">vagrant</span></code>.</p>
+<p>In order to create the image, you need to follow these steps.</p>
 <p><strong>64-bit image</strong></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">up</span></code></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">halt</span></code></p>
-<p>Use the VirtualBox manager to remove the shared folders, and export the 64-bit image.
-For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. Writing the ova file may take a minute or two.</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">destroy</span></code> (completely removes the VM)</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">up</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">halt</span></code></p>
+<p>Use the VirtualBox manager to remove the shared folders (<code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">Shared</span> <span class="pre">Folders</span></code>).
+Set the guest OS explicitely to <code class="docutils literal notranslate"><span class="pre">Debian</span> <span class="pre">(64-bit)</span></code> via <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">General</span> <span class="pre">-&gt;</span> <span class="pre">Version</span></code>.
+Then export the 64-bit image via <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Export</span> <span class="pre">Appliance</span></code>.
+Writing the ova file may take a minute or two. Then optionally remove the VM either via</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">destroy</span></code></p>
+<p>or via the VirtualBox GUI.</p>
 <p><strong>32-bit image</strong></p>
-<p>Edit <code class="docutils literal"><span class="pre">Vagrantfile</span></code>: comment out lines 11-20, uncomment 24-36</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">up</span></code></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">halt</span></code></p>
-<p>Use the VirtualBox manager to remove the shared folders, and export the 32-bit image.</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">destroy</span></code></p>
-<p>Load each VM into VirtualBox and test out the notebooks to verify that everything works.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">We do no longer support 32-bit environments!</p>
+</div>
+<p>You still might get it to work, though, by finding a suitable 32-bit Vagrant box for Debian 9 (e.g. <a class="reference external" href="https://app.vagrantup.com/koalephant/boxes/debian9-i386">https://app.vagrantup.com/koalephant/boxes/debian9-i386</a>), and edit the <code class="docutils literal notranslate"><span class="pre">Vagrantfile</span></code>
+accordingly:</p>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">Vagrantfile</span></code>: comment out lines 18-20, uncomment 24-35 and edit <code class="docutils literal notranslate"><span class="pre">config.vm.box</span></code>. Then</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">up</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">halt</span></code></p>
+<p>Use the VirtualBox manager to remove the shared folders (<code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">Shared</span> <span class="pre">Folders</span></code>).
+Set the guest OS explicitely to <code class="docutils literal notranslate"><span class="pre">Debian</span> <span class="pre">(32-bit)</span></code> via <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">-&gt;</span> <span class="pre">General</span> <span class="pre">-&gt;</span> <span class="pre">Version</span></code>.
+Then export the 32-bit image via <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Export</span> <span class="pre">Appliance</span></code>.
+Writing the ova file may take a minute or two. Then optionally remove the VM either via</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">vagrant</span> <span class="pre">destroy</span></code></p>
+</div>
+<div class="section" id="reducing-the-size-of-the-vm-appliance">
+<h2>Reducing the size of the VM appliance<a class="headerlink" href="#reducing-the-size-of-the-vm-appliance" title="Permalink to this headline">¶</a></h2>
+<p>Before exporting the VM appliance, you might want to try reducing the size of the VM by releasing memory that is not used.</p>
+<ul class="simple">
+<li>in the VM terminal, unlock the <code class="docutils literal notranslate"><span class="pre">root</span></code> account via <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">passwd</span> <span class="pre">root</span></code></li>
+<li>enter and verify <code class="docutils literal notranslate"><span class="pre">root</span></code> password (preferably leave it with <code class="docutils literal notranslate"><span class="pre">vagrant</span></code>)</li>
+<li>in the VM terminal, do <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">zerofree</span></code></li>
+<li>restart the VM via VirtualBox GUI</li>
+<li>Immediately press and hold <code class="docutils literal notranslate"><span class="pre">Esc</span></code> until you see the <code class="docutils literal notranslate"><span class="pre">GNU</span> <span class="pre">GRUB</span></code> menu. If you see the log in terminal, you were too late in pressing <code class="docutils literal notranslate"><span class="pre">Esc</span></code></li>
+<li>Choose <code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">options</span> <span class="pre">for</span> <span class="pre">Debian/GNU</span> <span class="pre">Linux</span></code></li>
+<li>Choose <code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">(recovery</span> <span class="pre">mode)</span></code></li>
+<li>authenticate using your <code class="docutils literal notranslate"><span class="pre">root</span></code> password</li>
+<li><code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">rsyslog</span> <span class="pre">stop</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">killall</span> <span class="pre">dhclient</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-r</span> <span class="pre">-o</span> <span class="pre">remount</span> <span class="pre">/dev/sda1</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">zerofree</span> <span class="pre">-v</span> <span class="pre">/dev/sda1</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">exit</span></code> from recovery mode and shut down the VM</li>
+<li>export appliance as shown above</li>
+</ul>
 </div>
 </div>
 
@@ -125,6 +140,7 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="team.html">Development Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
           <div role="search">
@@ -152,7 +168,7 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/build.txt"
+              <a href="_sources/build.rst.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>
@@ -160,7 +176,7 @@ For the latter, choose the <em>File</em> menu, then <em>Export Appliance</em>. W
         <div class="right">
           
     <div class="footer" role="contentinfo">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
         </div>
         <div class="clearer"></div>

@@ -1,33 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Share data between guest and host &#8212; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="An Open Virtual Machine for Cross-Platform Weather Radar Science" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Courses" href="courses.html" />
     <link rel="prev" title="Build the VM from source" href="build.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -70,27 +59,27 @@ which it should be known to the VM. You can do this using the
 VirtualBox GUI.</p>
 <ul class="simple">
 <li>Power-off the VM</li>
-<li>In VirtualBox, right-click the VM, and select <code class="docutils literal"><span class="pre">Settings</span></code></li>
-<li>Select the <code class="docutils literal"><span class="pre">Shared</span> <span class="pre">Folders</span></code> item, hit the <code class="docutils literal"><span class="pre">Add</span> <span class="pre">folder</span></code> icon</li>
+<li>In VirtualBox, right-click the VM, and select <code class="docutils literal notranslate"><span class="pre">Settings</span></code></li>
+<li>Select the <code class="docutils literal notranslate"><span class="pre">Shared</span> <span class="pre">Folders</span></code> item, hit the <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">folder</span></code> icon</li>
 <li>Select the directory you want to share</li>
-<li>Under <code class="docutils literal"><span class="pre">Folder</span> <span class="pre">Name</span></code>, the folder will be known to the VM</li>
+<li>Under <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">Name</span></code>, the folder will be known to the VM</li>
 <li>Use the check boxes to decide whether the folder should be
-<code class="docutils literal"><span class="pre">read-only</span></code> from the VM, and whether it should be shared permanently;
-generally, you should not check <code class="docutils literal"><span class="pre">Auto-mount</span></code>.</li>
+<code class="docutils literal notranslate"><span class="pre">read-only</span></code> from the VM, and whether it should be shared permanently;
+generally, you should not check <code class="docutils literal notranslate"><span class="pre">Auto-mount</span></code>.</li>
 </ul>
 </div>
 <div class="section" id="step-2-mount-shared-directory-on-the-vm">
 <h3>Step 2: Mount shared directory on the VM<a class="headerlink" href="#step-2-mount-shared-directory-on-the-vm" title="Permalink to this headline">¶</a></h3>
 <p>Now start the VM again, log in, and execute:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) sharedir mountdir
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) sharedir mountdir
 </pre></div>
 </div>
-<p>where <code class="docutils literal"><span class="pre">sharedir</span></code> has to be what you chose as <code class="docutils literal"><span class="pre">Folder</span> <span class="pre">Name</span></code> above, and
-and <code class="docutils literal"><span class="pre">mountdir</span></code> is the target directory in the VM&#8217;s file system which
-must already exist (otherwise, you ned to create it using <code class="docutils literal"><span class="pre">mkdir</span></code>).</p>
-<p>For example, if your <code class="docutils literal"><span class="pre">Folder</span> <span class="pre">Name</span></code> from <a class="reference internal" href="#step-1-define-shared-directory">Step 1: Define shared directory</a> was <code class="docutils literal"><span class="pre">data2vm</span></code>, you could
-execute the following on the VM (assume you are in the <code class="docutils literal"><span class="pre">~</span></code> directory):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>~$ mkdir from_host
+<p>where <code class="docutils literal notranslate"><span class="pre">sharedir</span></code> has to be what you chose as <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">Name</span></code> above, and
+and <code class="docutils literal notranslate"><span class="pre">mountdir</span></code> is the target directory in the VM’s file system which
+must already exist (otherwise, you ned to create it using <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>).</p>
+<p>For example, if your <code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">Name</span></code> from <a class="reference internal" href="#step-1-define-shared-directory">Step 1: Define shared directory</a> was <code class="docutils literal notranslate"><span class="pre">data2vm</span></code>, you could
+execute the following on the VM (assume you are in the <code class="docutils literal notranslate"><span class="pre">~</span></code> directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ mkdir from_host
 ~$ sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) data2vm ~/from_host
 ~$ ls from_host
 </pre></div>
@@ -119,6 +108,7 @@ show you the content of your shared directory on the host.</p>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="team.html">Development Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
           <div role="search">
@@ -146,7 +136,7 @@ show you the content of your shared directory on the host.</p>
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/sharedir.txt"
+              <a href="_sources/sharedir.rst.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>
@@ -154,7 +144,7 @@ show you the content of your shared directory on the host.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
         </div>
         <div class="clearer"></div>

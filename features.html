@@ -1,33 +1,22 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Features &#8212; An Open Virtual Machine for Cross-Platform Weather Radar Science</title>
-    
     <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="An Open Virtual Machine for Cross-Platform Weather Radar Science" href="index.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quick start" href="quickstart.html" />
     <link rel="prev" title="Background" href="background.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
@@ -65,12 +54,21 @@ on most operating systems (Linux, Mac, Windows).</p>
 <div class="section" id="python">
 <h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <p>The VM comes with a scientific Python stack, including the most important Python Packages
-for scientific computing (NumPy, SciPy and many more). The VM also contains <a class="reference external" href="http://ipython.org/">IPython</a>.</p>
-<p>A convenient way to use IPython is the <a class="reference external" href="http://ipython.org/notebook.html">IPython notebook</a>. From the VM
-root directory, run</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">./start_notebook.sh</span></code></p>
-<p>Open a browser on your host machine and navigate to <a class="reference external" href="http://127.0.0.1:8888/tree">http://127.0.0.1:8888/tree</a>.</p>
-<p>See <a class="reference internal" href="quickstart.html"><span class="doc">Quick start</span></a> for further infos.</p>
+for scientific computing (NumPy, SciPy and many more), and <a class="reference external" href="https://jupyter.org/">jupyter</a>
+in order to run the course notebooks.</p>
+<p>See <a class="reference internal" href="quickstart.html"><span class="doc">Quick start</span></a> to see how to run <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> notebooks on the VM.</p>
+<p><strong>Two Python distributions</strong></p>
+<p>Right now, we are in a phase of transition in which some packages have already moved on
+to Python 3, while others still rely on Python 2 (see
+<a class="reference external" href="https://https://docs.python.org/3/howto/pyporting.html">here</a> for some background).</p>
+<p>As a result, the VM, as of now, contains two Python distributions:</p>
+<ul class="simple">
+<li>the system Python is 2.7, and the installation of Python packages is based on the Debian 9 (Stretch) package manager. The system Python is mainly used by the BALTRAD package.</li>
+<li>the VM also contains <a class="reference external" href="https://conda.io/miniconda.html">Miniconda with Python 3.6</a>. Using the <a class="reference external" href="https://conda.io/docs/index.html">conda</a> package manager, we maintain a 3.6 <code class="docutils literal notranslate"><span class="pre">conda</span></code> Python environment that contains wradlib, Py-ART and PyTMatrix.</li>
+</ul>
+<p>As a result, the interoperability demos for BALTRAD, Py-ART, and wradlib are, as of now, not operational.
+We are working on a solution to integrate all packages in a unified Python environment, again.</p>
+<p>See <a class="reference internal" href="quickstart.html"><span class="doc">Quick start</span></a> to see how <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> notebooks can be invoked in the two different Python environments.</p>
 </div>
 <div class="section" id="webserver">
 <h2>Webserver<a class="headerlink" href="#webserver" title="Permalink to this headline">¶</a></h2>
@@ -102,6 +100,7 @@ also show how to combine different weather radar packages.</p>
 <li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
 <li class="toctree-l1"><a class="reference internal" href="team.html">Development Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="knownissues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
           <div role="search">
@@ -129,7 +128,7 @@ also show how to combine different weather radar packages.</p>
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="_sources/features.txt"
+              <a href="_sources/features.rst.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>
@@ -137,7 +136,7 @@ also show how to combine different weather radar packages.</p>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
         </div>
         <div class="clearer"></div>
